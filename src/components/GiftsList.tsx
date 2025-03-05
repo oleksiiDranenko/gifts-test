@@ -14,7 +14,7 @@ interface ItemInterface {
 export default function GiftsList() {
 
     const [list, setList] = useState<ItemInterface[]>([
-        {name: 'Plush Pepe', imgUrl: 'plushPepe', price: 300, percentageChange: 0.05},
+        {name: 'Plush Pepe', imgUrl: 'plushPepe', price: 301, percentageChange: 0.05},
         {name: 'Love Potion', imgUrl: 'lovePotion', price: 1.68, percentageChange: -0.163},
         {name: 'Signet Ring', imgUrl: 'signetRing', price: 7.7, percentageChange: 0.95}
     ])
