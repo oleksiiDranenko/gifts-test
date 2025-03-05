@@ -3,7 +3,7 @@
 import GiftsList from '@/components/GiftsList';
 import { useEffect, useState } from 'react'
 // Client-side only logic, avoid SSR errors
-export default function page() {
+export default function Page() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

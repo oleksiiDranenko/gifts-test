@@ -73,7 +73,7 @@ export default function GiftChart({ list }: PropsInterface) {
                 break;
         }
 
-    }, [listSelected])
+    }, [listSelected, list])
 
   
     const data = {
