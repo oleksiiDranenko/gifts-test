@@ -26,13 +26,19 @@ export default function Home() {
           if (telegramWebApp.disableVerticalSwipes) {
             telegramWebApp.disableVerticalSwipes(); // Prevent swipe-down close
             console.log('Vertical swipes disabled.');
-          } else {
-            console.warn('disableVerticalSwipes method not available.');
           }
 
           if (telegramWebApp.lockOrientation) {
-            telegramWebApp.lockOrientation(); // Optional: Lock screen orientation
+            telegramWebApp.lockOrientation(); // Lock screen orientation
             console.log('Screen orientation locked.');
+          }
+
+          // Set header color to a custom color (example: "#1E90FF" or any CSS color)
+          if (telegramWebApp.setHeaderColor) {
+            telegramWebApp.setHeaderColor('#111827'); // Set custom color (e.g., Dodger Blue)
+            console.log('Header color set to #1E90FF.');
+          } else {
+            console.warn('setHeaderColor method not available.');
           }
         } else {
           console.error('Telegram Web App SDK not available.');

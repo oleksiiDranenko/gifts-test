@@ -224,13 +224,13 @@ export default function GiftChart({ list }: PropsInterface) {
             <div className="w-full mb-2 mt-5 flex flex-row justify-between">
                 <div className="w-1/2 flex flex-row box-border ml-2">
                     <button 
-                        className={`w-2/5 h-10 box-border ${selectedPrice == 'ton' ? 'rounded-lg bg-[#0098EA] font-bold' : null }`}
+                        className={`w-2/5 text-sm  h-10 box-border ${selectedPrice == 'ton' ? 'rounded-lg bg-[#0098EA] font-bold' : null }`}
                         onClick={() => setSelectedPrice('ton')}
                     >
                         TON
                     </button>
                     <button 
-                        className={`w-2/5 h-10 box-border ${selectedPrice == 'usd' ? 'rounded-lg bg-[#0098EA] font-bold' : null }`}
+                        className={`w-2/5 text-sm  h-10 box-border ${selectedPrice == 'usd' ? 'rounded-lg bg-[#0098EA] font-bold' : null }`}
                         onClick={() => setSelectedPrice('usd')}
                     >
                         USD
@@ -259,33 +259,30 @@ export default function GiftChart({ list }: PropsInterface) {
             <div className="mb-1 mt-5 w-screen flex flex-col pr-3 pl-2">
                 <div className="w-full  flex flex-row justify-between">
                     <button 
-                        className={`w-1/5 h-10 box-border ${listSelected == '24h' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
-                        onClick={() => setListSelected('24h')}
-                    >
-                        24h
-                    </button>
-
-                    <button 
-                        className={`w-1/5 h-10 box-border ${listSelected == '1w' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
-                        onClick={() => setListSelected('1w')}
-                    >
-                        1w
-                    </button>
-
-                    <button 
-                        className={`w-1/5 h-10 box-border ${listSelected == '1m' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
-                        onClick={() => setListSelected('1m')}
-                    >
-                        1m
-                    </button>
-
-                    <button 
-                        className={`w-1/5 h-10 box-border ${listSelected == 'all' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == 'all' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
                         onClick={() => setListSelected('all')}
                     >
                         All
                     </button>
-                    
+                    <button 
+                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == '1m' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        onClick={() => setListSelected('1m')}
+                    >
+                        1m
+                    </button>
+                    <button 
+                        className={`w-1/5 text-sm h-10 box-border ${listSelected == '1w' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        onClick={() => setListSelected('1w')}
+                    >
+                        1w
+                    </button>
+                    <button 
+                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == '24h' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        onClick={() => setListSelected('24h')}
+                    >
+                        24h
+                    </button>
+                                        
                 </div>
             </div>
             
