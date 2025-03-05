@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import { TonConnectUIProvider } from '@tonconnect/ui-react' 
 import Navbar from '@/components/Navbar'
 import './globals.css'
+import NavbarBottom from '@/components/NavbarBottom'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Navbar/>
           {children}
+          <NavbarBottom/>
         </body>
       </TonConnectUIProvider>
     </html>
