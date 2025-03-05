@@ -9,24 +9,33 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Ensuring this runs only on the client side (in the browser)
     setIsClient(true);
   }, []);
 
   useEffect(() => {
     if (isClient) {
-      // Dynamically import WebApp SDK
       import('@twa-dev/sdk').then((WebApp) => {
         const telegramWebApp = WebApp.default;
 
-        // Check if the methods are available on the WebApp object
-        if (telegramWebApp && telegramWebApp.ready && telegramWebApp.expand) {
-          console.log('WebApp methods are available', telegramWebApp);
+        if (telegramWebApp) {
+          console.log('Telegram Web App initialized:', telegramWebApp);
 
-          telegramWebApp.ready(); // Initialize Telegram Web App
-          telegramWebApp.expand(); // Prevent swipe-down close
+          telegramWebApp.ready();  // Ensure the app is initialized
+          telegramWebApp.expand(); // Expand to full screen
+          
+          if (telegramWebApp.disableVerticalSwipes) {
+            telegramWebApp.disableVerticalSwipes(); // Prevent swipe-down close
+            console.log('Vertical swipes disabled.');
+          } else {
+            console.warn('disableVerticalSwipes method not available.');
+          }
+
+          if (telegramWebApp.lockOrientation) {
+            telegramWebApp.lockOrientation(); // Optional: Lock screen orientation
+            console.log('Screen orientation locked.');
+          }
         } else {
-          console.error('WebApp SDK is not available or missing methods');
+          console.error('Telegram Web App SDK not available.');
         }
       }).catch((err) => {
         console.error('Error loading WebApp SDK:', err);
