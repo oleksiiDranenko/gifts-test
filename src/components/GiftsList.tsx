@@ -29,6 +29,7 @@ export default function GiftsList() {
                         <Link 
                             className="w-full h-16 pl-3 pr-3 flex flex-row items-center justify-between"
                             href={'/gift'}
+                            key={item.price}
                         >
 
                             <div className="w-1/2 flex flex-row items-center">
