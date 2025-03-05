@@ -3,7 +3,6 @@
 import GiftChart from '@/components/GIftChart'
 import { data } from '@/data'
 import { useEffect, useState } from 'react'
-
 // Client-side only logic, avoid SSR errors
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -49,9 +48,12 @@ export default function Home() {
     }
   }, [isClient]);
 
+
+
   return (
-    <main className="flex min-h-screen flex-row justify-center pt-14">
-      <GiftChart list={data} />
+    <main className="flex min-h-screen flex-col justify-center">
+		<div className='h-14'></div>
+      	<GiftChart list={data} />
     </main>
   );
 }

@@ -238,7 +238,7 @@ export default function GiftChart({ list }: PropsInterface) {
                 </div>
                 
                 <div className="w-1/3 h-10 mr-2 flex items-center justify-center">
-                    <span className={`${percentChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                    <span className={`text-sm ${percentChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                         {
                             (percentChange > 0 ? '+' : '') + percentChange + '%'
 
