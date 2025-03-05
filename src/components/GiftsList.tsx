@@ -50,7 +50,7 @@ export default function GiftsList() {
                             </div>
 
                             <div className="w-1/2 flex flex-row items-center justify-end">
-                                <span className={`mr-5 ${item.percentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                                <span className={`mr-3 text-sm ${item.percentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                                     {item.percentageChange * 100}%
                                 </span>
                                 <div className="w-1/3 h-8 flex items-center justify-center bg-slate-700 rounded-lg">
