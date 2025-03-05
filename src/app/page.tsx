@@ -53,8 +53,7 @@ export default function page() {
 
   return (
     <main className="flex min-h-screen pt-14 flex-col">
-      	{/* <GiftChart list={data} /> */}
-		{/* <GiftsList/> */}
+		<GiftsList/>
     </main>
   );
 }
