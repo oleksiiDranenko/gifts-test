@@ -1,8 +1,6 @@
 'use client'
 
-import GiftChart from '@/components/GIftChart'
 import GiftsList from '@/components/GiftsList';
-import { data } from '@/data'
 import { useEffect, useState } from 'react'
 // Client-side only logic, avoid SSR errors
 export default function page() {
