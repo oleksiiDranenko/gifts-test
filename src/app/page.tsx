@@ -13,13 +13,21 @@ export default function Home() {
     setIsClient(true);
   }, []);
 
-  // We can import WebApp inside useEffect to ensure it runs only on the client-side
   useEffect(() => {
     if (isClient) {
+      // Dynamically import WebApp SDK
       import('@twa-dev/sdk').then((WebApp) => {
-        // Type assertion to tell TypeScript that WebApp has ready and expand methods
-        (WebApp as any).ready();  // Initialize Telegram Web App
-        (WebApp as any).expand(); // Prevent swipe-down close
+        const telegramWebApp = WebApp.default;
+
+        // Check if the methods are available on the WebApp object
+        if (telegramWebApp && telegramWebApp.ready && telegramWebApp.expand) {
+          console.log('WebApp methods are available', telegramWebApp);
+
+          telegramWebApp.ready(); // Initialize Telegram Web App
+          telegramWebApp.expand(); // Prevent swipe-down close
+        } else {
+          console.error('WebApp SDK is not available or missing methods');
+        }
       }).catch((err) => {
         console.error('Error loading WebApp SDK:', err);
       });
