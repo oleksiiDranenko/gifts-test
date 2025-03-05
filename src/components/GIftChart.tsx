@@ -206,7 +206,7 @@ export default function GiftChart({ list }: PropsInterface) {
                         <span className="text-xl font-bold">
                             Plush Pepe
                         </span>
-                        <span className="text-[rgba(255, 255, 255, 0.6)] text-sm">
+                        <span className="text-slate-400 text-sm">
                             {' / ' + (selectedPrice == 'ton' ? 'TON' : 'USD')}
                         </span>
                     </h1>

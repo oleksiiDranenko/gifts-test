@@ -1,10 +1,11 @@
 'use client'
 
 import GiftChart from '@/components/GIftChart'
+import GiftsList from '@/components/GiftsList';
 import { data } from '@/data'
 import { useEffect, useState } from 'react'
 // Client-side only logic, avoid SSR errors
-export default function Home() {
+export default function page() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -51,9 +52,9 @@ export default function Home() {
 
 
   return (
-    <main className="flex min-h-screen flex-col justify-center">
-		<div className='h-14'></div>
-      	<GiftChart list={data} />
+    <main className="flex min-h-screen pt-14 flex-col">
+      	{/* <GiftChart list={data} /> */}
+		<GiftsList/>
     </main>
   );
 }
