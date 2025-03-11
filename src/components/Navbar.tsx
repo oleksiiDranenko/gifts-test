@@ -17,7 +17,7 @@ export default function Navbar() {
                         Gift Charts
                     </span>
                 </div>
-                <TonConnectButton className='bg-[#0098EA] rounded-lg'/>
+                <TonConnectButton/>
         </div>
     )
 }
