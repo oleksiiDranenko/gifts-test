@@ -212,13 +212,21 @@ export default function GiftChart({ list }: PropsInterface) {
                     </h1>
                 </div>
                 <div className="w-1/3 h-14 flex flex-row items-center justify-center bg-slate-800 rounded-lg">
-                    <Image 
-                        alt="ton logo"
-                        src='/images/ton.png'
-                        width={16}
-                        height={16}
-                        className="mr-2"
-                    />
+                    {
+                        selectedPrice == 'ton' 
+                        ?
+                        <Image 
+                            alt="ton logo"
+                            src='/images/ton.png'
+                            width={16}
+                            height={16}
+                            className="mr-2"
+                        /> 
+                        :
+                        <span className="text-lg font-extrabold mr-1">
+                            $
+                        </span>
+                    }
                     <span className="text-lg font-extrabold">
                         {
                             selectedPrice == 'ton' 
