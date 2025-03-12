@@ -24,28 +24,40 @@ export default function GiftsList() {
 
     return (
         <div className='w-screen h-auto flex flex-col items-center'>
+            
+            <div className="w-full pl-3 pr-3 flex flex-row h-6 text-xs text-slate-500">
+                <div className="w-3/5 flex flex-row items-center">
+                    Name / Supply
+                </div>
+                <div className="w-2/5 flex flex-row items-center justify-end">
+                    Price / 24h change
+                </div>
+            </div>
+
             {
                 list.map((item) => {
 
                     return (
                         <Link 
-                            className="w-full h-16 pl-3 pr-3 mb-2 rounded-lg flex flex-row items-center justify-between"
+                            className="w-full h-20 pl-3 pr-3 flex flex-row items-center justify-between"
                             href={'/gift'}
                             key={item.name}
                         >
 
-                            <div className="w-6/12 flex flex-row items-center">
+                            <div className="w-3/5 flex flex-row items-center">
                                 <Image
                                     alt="gift image"
                                     src={`/images/${item.imgUrl}.png`}
-                                    width={40}
-                                    height={40}
-                                    className="bg-slate-800 p-1 mr-3 mb-1 rounded-lg"
+                                    width={50}
+                                    height={50}
+                                    className="bg-slate-800 p-1 mr-3 rounded-lg"
                                 />
 
-                                <div className="text-sm flex flex-col font-extrabold">
-                                    {item.name} 
-                                    <span className="text-slate-400 text-sm font-normal">
+                                <div className="flex flex-col">
+                                    <span className="text-base font-bold">
+                                        {item.name} 
+                                    </span>
+                                    <span className="text-slate-500 text-sm font-normal">
                                         {'4.8K'}
                                     </span>
                                 </div>
@@ -53,21 +65,23 @@ export default function GiftsList() {
 
                             
 
-                            <div className="w-4/12 flex flex-row items-center justify-end">
-                                <div className={`w-20 h-10 text-sm flex flex-col items-end justify-center mr-2`}>
-                                    <div className="flex flex-row items-center mb-1 font-extrabold">
+                            <div className="w-2/5 flex flex-row items-center justify-end">
+                                <div className="w-20 h-10 text-sm flex flex-col items-end justify-center mr-2">
+                                    <div className="flex flex-row items-center">
                                         <Image 
                                             alt="ton logo"
                                             src='/images/ton.png'
-                                            width={12}
-                                            height={12}
+                                            width={15}
+                                            height={15}
                                             className="mr-1"
                                         />
-                                        {item.price}
+                                        <span className="text-base font-bold">
+                                            {item.price}
+                                        </span>
                                     </div>
 
                                     
-                                    <span className={`text-xs ${item.percentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                                    <span className={`text-sm ${item.percentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                                         {item.percentageChange > 0 ? '+' : null}{item.percentageChange * 100}%
                                     </span>
                                 </div>

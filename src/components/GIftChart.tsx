@@ -191,38 +191,47 @@ export default function GiftChart({ list }: PropsInterface) {
 
 
     return (
-        <div className="h-screen w-screen">
+        <div className="h-screen w-screen pl-3 pr-3">
 
-            <div className="w-full h-12 mt-5 pl-2 flex flex-row justify-between items-center">
+            <div className="w-full h-16 mt-5 flex flex-row justify-between items-center">
                 <div className="h-full flex items-center">
                     <Image 
                         alt="gift"
                         src={'/images/plushPepe.png'}
-                        width={50}
-                        height={50}
+                        width={55}
+                        height={55}
                         className="mr-3 bg-slate-800 p-1 rounded-lg"
                     />
-                    <h1>
+                    <h1 className="flex flex-col">
                         <span className="text-xl font-bold">
                             Plush Pepe
                         </span>
-                        <span className="text-slate-400 text-sm">
-                            {' / ' + (selectedPrice == 'ton' ? 'TON' : 'USD')}
+                        <span className="text-slate-500 text-sm">
+                            Supply: 1.9K
                         </span>
                     </h1>
                 </div>
-                <div className="w-1/3 h-10 mr-2 flex flex-row items-center justify-center text-base font-bold bg-slate-800 rounded-lg">
-                    {
-                        selectedPrice == 'ton' 
-                        ? currentList[currentList.length -1].priceTon 
-                        : currentList[currentList.length -1].priceUsd
-                    }
+                <div className="w-1/3 h-14 flex flex-row items-center justify-center bg-slate-800 rounded-lg">
+                    <Image 
+                        alt="ton logo"
+                        src='/images/ton.png'
+                        width={16}
+                        height={16}
+                        className="mr-2"
+                    />
+                    <span className="text-lg font-extrabold">
+                        {
+                            selectedPrice == 'ton' 
+                            ? currentList[currentList.length -1].priceTon 
+                            : currentList[currentList.length -1].priceUsd
+                        }
+                    </span>
                 </div>
             </div>
 
 
             <div className="w-full mb-2 mt-5 flex flex-row justify-between">
-                <div className="w-1/2 flex flex-row box-border ml-2">
+                <div className="w-1/2 flex flex-row box-border">
                     <button 
                         className={`w-2/5 text-sm  h-10 box-border ${selectedPrice == 'ton' ? 'rounded-lg bg-[#0098EA] font-bold' : null }`}
                         onClick={() => setSelectedPrice('ton')}
@@ -237,8 +246,8 @@ export default function GiftChart({ list }: PropsInterface) {
                     </button>
                 </div>
                 
-                <div className="w-1/3 h-10 mr-2 flex items-center justify-center">
-                    <span className={`text-sm ${percentChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                <div className="w-1/3 h-10 flex items-center justify-center">
+                    <span className={`text-sm font-bold ${percentChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                         {
                             (percentChange > 0 ? '+' : '') + percentChange + '%'
 
@@ -256,28 +265,28 @@ export default function GiftChart({ list }: PropsInterface) {
             
 
 
-            <div className="mb-1 mt-5 w-screen flex flex-col pr-3 pl-2">
+            <div className="mb-1 mt-5  flex flex-col">
                 <div className="w-full  flex flex-row justify-between">
                     <button 
-                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == 'all' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        className={`w-1/5 text-sm  h-10  ${listSelected == 'all' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
                         onClick={() => setListSelected('all')}
                     >
                         All
                     </button>
                     <button 
-                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == '1m' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        className={`w-1/5 text-sm  h-10 ${listSelected == '1m' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
                         onClick={() => setListSelected('1m')}
                     >
                         1m
                     </button>
                     <button 
-                        className={`w-1/5 text-sm h-10 box-border ${listSelected == '1w' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        className={`w-1/5 text-sm h-10  ${listSelected == '1w' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
                         onClick={() => setListSelected('1w')}
                     >
                         1w
                     </button>
                     <button 
-                        className={`w-1/5 text-sm  h-10 box-border ${listSelected == '24h' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
+                        className={`w-1/5 text-sm  h-10  ${listSelected == '24h' ? 'rounded-lg bg-[#0098EA] font-bold' : null}`}
                         onClick={() => setListSelected('24h')}
                     >
                         24h
