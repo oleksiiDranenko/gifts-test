@@ -4,11 +4,6 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import { Line } from "react-chartjs-2"
-import { Chart as ChartJS, LineElement, PointElement, LinearScale, CategoryScale } from "chart.js"
-
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale)
-
 
 interface ItemInterface {
     name: string,
@@ -32,34 +27,9 @@ export default function GiftsList() {
             {
                 list.map((item) => {
 
-                        const data = {
-                            labels: ["1h", "2h", "3h", "4h", "Now"], // Example time labels
-                            datasets: [
-                                {
-                                    data: item.history,
-                                    borderColor: item.percentageChange >= 0 ? "rgb(34, 197, 94)" : "rgb(239, 68, 68)", // Green for up, red for down
-                                    backgroundColor: "transparent",
-                                    borderWidth: 1,
-                                    pointRadius: 0,
-                                    tension: 0
-                                }
-                            ]
-                        }
-    
-                        const options = {
-                            responsive: true,
-                            scales: {
-                                x: { display: false},
-                                y: { display: false }
-                            },
-                            plugins: {
-                                legend: { display: false }
-                            }
-                        }
-
                     return (
                         <Link 
-                            className="w-full h-14 pl-3 pr-3 mb-2 rounded-lg flex flex-row items-center justify-between border border-slate-800"
+                            className="w-full h-16 pl-3 pr-3 mb-2 rounded-lg flex flex-row items-center justify-between"
                             href={'/gift'}
                             key={item.name}
                         >
@@ -70,24 +40,22 @@ export default function GiftsList() {
                                     src={`/images/${item.imgUrl}.png`}
                                     width={40}
                                     height={40}
-                                    className="bg-slate-800 p-1 mr-3 rounded-lg"
+                                    className="bg-slate-800 p-1 mr-3 mb-1 rounded-lg"
                                 />
 
-                                <div className="text-sm flex flex-col">
+                                <div className="text-sm flex flex-col font-extrabold">
                                     {item.name} 
-                                    <span className="text-slate-400 text-xs">
-                                        {' / TON'}
+                                    <span className="text-slate-400 text-sm font-normal">
+                                        {'4.8K'}
                                     </span>
                                 </div>
                             </div>
 
-                            <div className="w-2/12 h-14 flex items-center">
-                                <Line data={data} options={options} height={120}/>
-                            </div>
+                            
 
                             <div className="w-4/12 flex flex-row items-center justify-end">
-                                <div className={`w-20 h-10 text-sm flex flex-col items-center justify-center rounded-lg`}>
-                                    <div className="flex flex-row items-center">
+                                <div className={`w-20 h-10 text-sm flex flex-col items-end justify-center mr-2`}>
+                                    <div className="flex flex-row items-center mb-1 font-extrabold">
                                         <Image 
                                             alt="ton logo"
                                             src='/images/ton.png'
